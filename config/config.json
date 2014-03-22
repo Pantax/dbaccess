@@ -1,12 +1,12 @@
-/**
- * Created by ozlevka on 3/21/14.
- */
 {
     "mysql" : {
-        "host" : "localhost",
+        "host" : "127.0.0.1",
         "port" : 3306,
         "database" : "pantax",
-        "user" : "ozlevka",
+        "user" : "levka",
         "password" : "lev4969"
+    },
+    "dbmanager" : {
+        "usepool" : false
     }
 }
