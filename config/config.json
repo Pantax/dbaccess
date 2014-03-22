@@ -6,7 +6,14 @@
         "user" : "levka",
         "password" : "lev4969"
     },
-    "dbmanager" : {
-        "usepool" : false
+    "logger" : {
+        "file" : {
+            "filename" : "/home/ozlevka/projects/fok/dbaccess/logs/pantax.log",
+            "maxsize" : 20480,
+            "level" : "debug"
+        },
+        "console" : {
+            "level" : "debug"
+        }
     }
 }
