@@ -6,7 +6,7 @@
         "host" : "localhost",
         "port" : 3306,
         "database" : "pantax",
-        "user" : "...",
-        "password" : "..."
+        "user" : "ozlevka",
+        "password" : "lev4969"
     }
 }
