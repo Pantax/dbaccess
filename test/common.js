@@ -9,11 +9,9 @@ var mysql = require('mysql');
 
 
 
-function moreTestFormat()
-{
-    var pool = mysql.createPool(config.mysql);
-};
+dbmanager.deleteAppointment(1, function(err, appointment){
+    if(err) console.error(err);
+    else console.log(appointment);
 
-
-
-moreTestFormat();
+    dbmanager.releasePool();
+});
