@@ -4,12 +4,16 @@
 
 var dbmanager = require('../lib/dbmanager');
 var util = require('util');
-
+var config = require('../config/config');
 var mysql = require('mysql');
 
-dbmanager.deleteDocument(3,function(err, results){
-    if(err) console.error(err);
-    else console.log(results);
 
-    dbmanager.releasePool();
-})
+
+function moreTestFormat()
+{
+    var pool = mysql.createPool(config.mysql);
+};
+
+
+
+moreTestFormat();
