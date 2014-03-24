@@ -9,9 +9,9 @@ var mysql = require('mysql');
 
 
 
-dbmanager.deleteAppointment(1, function(err, appointment){
+dbmanager.getEntityByCode('ABCD4321', true, function(err, results){
     if(err) console.error(err);
-    else console.log(appointment);
+    else console.log(results);
 
     dbmanager.releasePool();
 });
