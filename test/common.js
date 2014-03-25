@@ -7,7 +7,12 @@ var util = require('util');
 var config = require('../config/config');
 var mysql = require('mysql');
 
-dbmanager.createSchema(function(err) {
-    dbmanager.releasePool();
-});
+function processCreate() {
+    dbmanager.createSchema(function(err) {
+        dbmanager.releasePool();
+    });
+}
+
+
+
 
