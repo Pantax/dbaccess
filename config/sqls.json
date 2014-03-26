@@ -1,5 +1,6 @@
 {
     "insertDoctor" : "INSERT INTO pantax.doctors (name, prof_stat, pract_name, picture_url) VALUES (? , ? , ?, ?)",
     "insertCategory" : "INSERT INTO pantax.category (category_name) VALUES (?)",
-    "addDoctorCategory" : "INSERT INTO pantax.doctor_category (doctor_id, category_id) VALUES (? , ?)"
+    "addDoctorCategory" : "INSERT INTO pantax.doctor_category (doctor_id, category_id) VALUES (? , ?)",
+    "getAllCategories" : "SELECT id, category_name FROM category"
 }

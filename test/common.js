@@ -42,8 +42,16 @@ function addDoctorToCategoryTest() {
     })
 }
 
-addDoctorToCategoryTest();
+function getAllCategoriesTest() {
+    dbmanager.getAllCategories({},function(err, results) {
+       if(err) console.error(err);
+       else console.log(results);
 
+       dbmanager.releasePool();
+    });
+}
+
+getAllCategoriesTest();
 
 //createCategory('Cardiologist');
 //insertDoctorsFromExample();
