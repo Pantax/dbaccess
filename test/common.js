@@ -51,8 +51,55 @@ function getAllCategoriesTest() {
     });
 }
 
-getAllCategoriesTest();
+function insertDoctorTest() {
+    var doctor = {
+        name : 'Dr. Joseph Rahimian MD',
+        prof_stat : 'Experienced physicians specializing in infections,travel medicine, STDs, HIV, and general medical care',
+        pract_name : 'Village Park Medical',
+        picture_url : 'http://d3o8tq2mzdhnjd.cloudfront.net/images/professionals/0ddd25d8-e005-41b1-89e9-5a89ba7431c1zoom.jpg'
+    };
 
+    dbmanager.saveDoctor(doctor,function(err, results){
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    });
+}
+
+function updateDoctorTest() {
+    var doctor = {
+        id : 5,
+        name : 'Dr. Joseph Rahimian MD',
+        prof_stat : 'Experienced physicians specializing in infections,travel medicine, STDs, HIV, and general medical care',
+        pract_name : 'Village Park Medical',
+        picture_url : 'http://d3o8tq2mzdhnjd.cloudfront.net/images/professionals/0ddd25d8-e005-41b1-89e9-5a89ba7431c1zoom.jpg'
+    };
+
+    dbmanager.saveDoctor(doctor,function(err, results){
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    });
+
+}
+
+
+function findDoctorByNameTest() {
+    dbmanager.findDoctorBy('name', 'Dr.', function(err, results){
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    });
+}
+
+findDoctorByNameTest();
+
+//updateDoctorTest();
+//insertDoctorTest();
+//getAllCategoriesTest();
 //createCategory('Cardiologist');
 //insertDoctorsFromExample();
 //processCreate();
