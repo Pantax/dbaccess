@@ -5,5 +5,8 @@
     "getAllCategories" : "SELECT id, category_name FROM category",
     "insertDoctor"     : "INSERT INTO pantax.doctors ( name, prof_stat, pract_name, picture_url) VALUES ( ?, ?, ?, ? )",
     "updateDoctor"     : "UPDATE pantax.doctors set name=?, prof_stat=?, pract_name=?, picture_url=? where id=?",
-    "findDoctorBy"     : "SELECT * FROM pantax.doctors where ?? like ?"
+    "findDoctorBy"     : "SELECT * FROM pantax.doctors where ?? like ?",
+    "deleteDoctorCategory" : "DELETE FROM pantax.doctor_category where doctor_id = ?",
+    "insertDoctorCategory" : "INSERT INTO pantax.doctor_category (doctor_id, category_id) VALUES (?, ?)",
+    "findDoctorByCategory" : "SELECT d.* FROM pantax.doctors d inner join pantax.doctor_category dc on d.id = dc.doctor_id WHERE dc.category_id = ?"
 }

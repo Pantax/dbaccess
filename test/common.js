@@ -95,8 +95,29 @@ function findDoctorByNameTest() {
     });
 }
 
-findDoctorByNameTest();
+function associateDoctorCategoryTest() {
+    dbmanager.associateDoctorCategories(1,[1,4,5], function(err, results){
+        if(err) console.error(err);
+        else console.log(results);
 
+        dbmanager.releasePool();
+    });
+}
+
+
+function findDoctorByCategoryTest() {
+    dbmanager.findDoctorByCategory(1,function(err, results){
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    });
+}
+
+findDoctorByCategoryTest();
+
+//associateDoctorCategoryTest();
+//findDoctorByNameTest();
 //updateDoctorTest();
 //insertDoctorTest();
 //getAllCategoriesTest();
