@@ -148,6 +148,17 @@ function deleteDoctorAppointmentOptionsTest() {
     })
 }
 
+
+function savePatientTest() {
+    dbmanager.savePatient({name:'Splunk', id : 1}, function(err, results){
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    });
+}
+
+savePatientTest();
 //deleteDoctorAppointmentOptionsTest();
 //getDoctorAppointmentOptionsTest();
 //saveDoctorAppointmentOptionsTest();

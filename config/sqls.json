@@ -12,5 +12,7 @@
     "insertDoctorAppointmentOption" : "INSERT INTO pantax.doctor_appointment_options( `doctor_id`, `week_day`,  `from_time` , `to_time`) VALUES ( ?, ?, ?, ?)",
     "updateDoctorAppointmentOption" : "UPDATE pantax.doctor_appointment_options SET week_day = ?, from_time = ? , to_time = ? WHERE id = ?",
     "getDoctorAppointmentOptions"  :  "SELECT id,week_day, from_time, to_time FROM pantax.doctor_appointment_options WHERE doctor_id = ?",
-    "deleteDoctorAppointmentOption" : "DELETE FROM pantax.doctor_appointment_options WHERE id = ?"
+    "deleteDoctorAppointmentOption" : "DELETE FROM pantax.doctor_appointment_options WHERE id = ?",
+    "insertPatient" : "INSERT INTO pantax.patient (name) VALUES (?);",
+    "updatePatient" : "UPDATE pantax.patient SET name=? WHERE id=?;"
 }
