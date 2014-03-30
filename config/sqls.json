@@ -9,6 +9,8 @@
     "deleteDoctorCategory" : "DELETE FROM pantax.doctor_category where doctor_id = ?",
     "insertDoctorCategory" : "INSERT INTO pantax.doctor_category (doctor_id, category_id) VALUES (?, ?)",
     "findDoctorByCategory" : "SELECT d.* FROM pantax.doctors d inner join pantax.doctor_category dc on d.id = dc.doctor_id WHERE dc.category_id = ?",
-    "insertDoctorAppointmentOption" : "INSERT INTO pantax.doctor_appointment_options( `doctor_id`,  `from_time` , `to_time`) VALUES ( ?, ?, ?)",
-    "updateDoctorAppointmentOption" : "UPDATE pantax.doctor_appointment_options SET from_time = ? , to_time = ? WHERE id = ?"
+    "insertDoctorAppointmentOption" : "INSERT INTO pantax.doctor_appointment_options( `doctor_id`, `week_day`,  `from_time` , `to_time`) VALUES ( ?, ?, ?, ?)",
+    "updateDoctorAppointmentOption" : "UPDATE pantax.doctor_appointment_options SET week_day = ?, from_time = ? , to_time = ? WHERE id = ?",
+    "getDoctorAppointmentOptions"  :  "SELECT id,week_day, from_time, to_time FROM pantax.doctor_appointment_options WHERE doctor_id = ?",
+    "deleteDoctorAppointmentOption" : "DELETE FROM pantax.doctor_appointment_options WHERE id = ?"
 }

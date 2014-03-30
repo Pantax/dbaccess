@@ -117,9 +117,9 @@ function findDoctorByCategoryTest() {
 
 function saveDoctorAppointmentOptionsTest() {
     var options = [
-        {from_time:'12:00', to_time:'12:15', id : 1},
-        {from_time:'12:20', to_time:'12:35'},
-        {from_time:'12:40', to_time:'12:55'}
+        {week_day: 1,from_time:'12:00', to_time:'12:15'},
+        {week_day:1, from_time:'12:20', to_time:'12:35'},
+        {week_day: 1, from_time:'12:40', to_time:'12:55'}
     ]
 
     dbmanager.saveDoctorAppointmentOptions(3, options, function(err, results){
@@ -130,6 +130,26 @@ function saveDoctorAppointmentOptionsTest() {
     })
 }
 
+function getDoctorAppointmentOptionsTest() {
+    dbmanager.getDoctorAppointmentsOptions(3, function(err, results){
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    });
+}
+
+function deleteDoctorAppointmentOptionsTest() {
+    dbmanager.deleteDoctorAppointmentsOptions([1], function(err, results){
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    })
+}
+
+//deleteDoctorAppointmentOptionsTest();
+//getDoctorAppointmentOptionsTest();
 //saveDoctorAppointmentOptionsTest();
 //findDoctorByCategoryTest();
 //associateDoctorCategoryTest();
