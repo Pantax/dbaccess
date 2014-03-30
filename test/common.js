@@ -114,8 +114,24 @@ function findDoctorByCategoryTest() {
     });
 }
 
-findDoctorByCategoryTest();
 
+function saveDoctorAppointmentOptionsTest() {
+    var options = [
+        {from_time:'12:00', to_time:'12:15', id : 1},
+        {from_time:'12:20', to_time:'12:35'},
+        {from_time:'12:40', to_time:'12:55'}
+    ]
+
+    dbmanager.saveDoctorAppointmentOptions(3, options, function(err, results){
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    })
+}
+
+//saveDoctorAppointmentOptionsTest();
+//findDoctorByCategoryTest();
 //associateDoctorCategoryTest();
 //findDoctorByNameTest();
 //updateDoctorTest();
