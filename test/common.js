@@ -1,12 +1,13 @@
 /**
  * Created by ozlevka on 3/21/14.
  */
-
+require('date-utils');
 var dbmanager = require('../lib/dbmanager');
 var util = require('util');
 var config = require('../config/config');
 var mysql = require('mysql');
 var fs = require('fs');
+var async = require('async');
 
 function processCreate() {
     dbmanager.createSchema(function(err) {
@@ -158,10 +159,58 @@ function savePatientTest() {
     });
 }
 
+
+function validateAppointmentTest() {
+    var appointment = {
+        doctor_app_options : [1],
+        patient_id : 1,
+        from_date : '2014-03-30 12:03',
+        to_date : '2014-03-30 12:15'
+    }
+
+    dbmanager.validateAppointment(appointment, function(err, results) {
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    });
+}
+
+
+function dateTimeTest() {
+    var date = new Date();
+    console.log(date);
+    date.clearTime();
+    console.log(date);
+    dbmanager.getDoctorAppointmentsOptions(3, function(err, results){
+        if(err) console.error(err);
+        else {
+            async.each(results, function(res, cb){
+                console.log(res.from_time);
+                var splittedTime = res.from_time.split(':');
+                for(var i = 0; i < splittedTime.length; i++)
+                {
+                    splittedTime[i] = splittedTime[i] * 1;
+                }
+                d.addMinutes(splittedTime[0] * 60 + splittedTime[1]);
+
+            }, function(err) {
+                if(err) console.error(err);
+            })
+        }
+
+        dbmanager.releasePool();
+    });
+
+}
+
+
+validateAppointmentTest();
+//dateTimeTest();
 //savePatientTest();
 //deleteDoctorAppointmentOptionsTest();
 //getDoctorAppointmentOptionsTest();
-saveDoctorAppointmentOptionsTest();
+//saveDoctorAppointmentOptionsTest();
 //findDoctorByCategoryTest();
 //associateDoctorCategoryTest();
 //findDoctorByNameTest();
