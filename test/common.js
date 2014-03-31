@@ -117,9 +117,9 @@ function findDoctorByCategoryTest() {
 
 function saveDoctorAppointmentOptionsTest() {
     var options = [
-        {week_day: 1,from_time:'12:00', to_time:'12:15'},
-        {week_day:1, from_time:'12:20', to_time:'12:35'},
-        {week_day: 1, from_time:'12:40', to_time:'12:55'}
+        {week_day: 1,from_time:'12:00', duration:'15'},
+        {week_day:1, from_time:'12:20', duration:'13'},
+        {week_day: 1, from_time:'12:40', duration:'15'}
     ]
 
     dbmanager.saveDoctorAppointmentOptions(3, options, function(err, results){
@@ -150,7 +150,7 @@ function deleteDoctorAppointmentOptionsTest() {
 
 
 function savePatientTest() {
-    dbmanager.savePatient({name:'Splunk', id : 1}, function(err, results){
+    dbmanager.savePatient({name:'Shmunk'}, function(err, results){
         if(err) console.error(err);
         else console.log(results);
 
@@ -158,10 +158,10 @@ function savePatientTest() {
     });
 }
 
-savePatientTest();
+//savePatientTest();
 //deleteDoctorAppointmentOptionsTest();
 //getDoctorAppointmentOptionsTest();
-//saveDoctorAppointmentOptionsTest();
+saveDoctorAppointmentOptionsTest();
 //findDoctorByCategoryTest();
 //associateDoctorCategoryTest();
 //findDoctorByNameTest();
