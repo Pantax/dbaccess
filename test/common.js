@@ -164,8 +164,8 @@ function validateAppointmentTest() {
     var appointment = {
         doctor_app_options : [1],
         patient_id : 1,
-        from_date : '2014-03-30 12:03',
-        to_date : '2014-03-30 12:15'
+        from_date : '2014-04-20 12:00',
+        to_date : '2014-04-20 12:14'
     }
 
     dbmanager.validateAppointment(appointment, function(err, results) {
@@ -204,13 +204,13 @@ function dateTimeTest() {
 
 }
 
-
+//saveDoctorAppointmentOptionsTest();
 validateAppointmentTest();
 //dateTimeTest();
 //savePatientTest();
 //deleteDoctorAppointmentOptionsTest();
 //getDoctorAppointmentOptionsTest();
-//saveDoctorAppointmentOptionsTest();
+
 //findDoctorByCategoryTest();
 //associateDoctorCategoryTest();
 //findDoctorByNameTest();
