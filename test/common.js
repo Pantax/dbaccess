@@ -204,8 +204,38 @@ function dateTimeTest() {
 
 }
 
+
+function saveAppointmentTest() {
+    var appointment = {
+        doctor_app_options : [1],
+        patient_id : 1,
+        from_date : '2014-04-20 12:00',
+        to_date : '2014-04-20 12:14'
+    }
+
+    dbmanager.saveAppointment(appointment, function(err, results) {
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    });
+}
+
+
+function deleteAppointmentTest() {
+    var appointment_id = 1;
+    dbmanager.deleteAppointment(appointment_id, function(err, results){
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    });
+}
+
+deleteAppointmentTest();
+//saveAppointmentTest();
 //saveDoctorAppointmentOptionsTest();
-validateAppointmentTest();
+//validateAppointmentTest();
 //dateTimeTest();
 //savePatientTest();
 //deleteDoctorAppointmentOptionsTest();
