@@ -1,23 +1,3 @@
 {
-    "insertDoctor" : "INSERT INTO pantax.doctors (name, prof_stat, pract_name, picture_url) VALUES (? , ? , ?, ?)",
-    "insertCategory" : "INSERT INTO pantax.category (category_name) VALUES (?)",
-    "addDoctorCategory" : "INSERT INTO pantax.doctor_category (doctor_id, category_id) VALUES (? , ?)",
-    "getAllCategories" : "SELECT id, category_name FROM category",
-    "updateDoctor"     : "UPDATE pantax.doctors set name=?, prof_stat=?, pract_name=?, picture_url=? where id=?",
-    "findDoctorBy"     : "SELECT * FROM pantax.doctors where ?? like ?",
-    "deleteDoctorCategory" : "DELETE FROM pantax.doctor_category where doctor_id = ?",
-    "insertDoctorCategory" : "INSERT INTO pantax.doctor_category (doctor_id, category_id) VALUES (?, ?)",
-    "findDoctorByCategory" : "SELECT d.* FROM pantax.doctors d inner join pantax.doctor_category dc on d.id = dc.doctor_id WHERE dc.category_id = ?",
-    "insertDoctorAppointmentOption" : "INSERT INTO pantax.doctor_appointment_options( `doctor_id`, `from_date`,  `to_date`) VALUES ( ?, ?, ?)",
-    "updateDoctorAppointmentOption" : "UPDATE pantax.doctor_appointment_options SET from_date = ?, to_date = ? WHERE id = ?",
-    "getDoctorAppointmentOptions"  :  "SELECT id,week_day, from_time, duration FROM pantax.doctor_appointment_options WHERE doctor_id = ?",
-    "deleteDoctorAppointmentOption" : "DELETE FROM pantax.doctor_appointment_options WHERE id = ?",
-    "insertPatient" : "INSERT INTO pantax.patient (name) VALUES (?)",
-    "updatePatient" : "UPDATE pantax.patient SET name=? WHERE id=?",
-    "insertAppointment" : "INSERT INTO pantax.appointments (patient_id, from_date, to_date) VALUES(?, ?, ?)",
-    "insertAppointmentOptions" : "INSERT INTO pantax.appointment_appointment_options (option_id, appointment_id) VALUES(?, ?)",
-    "getMultipleDoctorAppOptions" : "select * from doctor_appointment_options where id in (inreplace)",
-    "deleteAppointment" : "delete from appointments where id = ?",
-    "deleteAppointmentAppointmentOptions" : "delete from appointment_appointment_options where appointment_id = ?",
-    "deleteAppointmentMessage" : "delete from appointment_message where appointment_id = ?"
+
 }
