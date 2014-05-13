@@ -3,4 +3,8 @@ INSERT INTO pantax.doctor (name, degree, primary_care, rank) VALUES('Dr Kala Mal
 INSERT INTO pantax.user (name, password, entity_type, entity_id, date_created) VALUES('kala', password('mala'), 'doctor', LAST_INSERT_ID(), now());
 INSERT INTO pantax.doctor (name, degree, primary_care, rank) VALUES('Dr Barla Sharla', 'MD', 'Hello doctor Barla Sharla', 0);
 INSERT INTO pantax.user (name, password, entity_type, entity_id, date_created) VALUES('barla', password('sharla'), 'doctor', LAST_INSERT_ID(), now());
+INSERT INTO pantax.patient (name, birthday, marital_status, occupation, address) VALUES('Vanka Ivanov', '1945-12-14', 'vdov', 'pensioner', 'Pupkin street Tambov');
+INSERT INTO pantax.user (name, password, entity_type, entity_id, date_created) VALUES('vanka', password('shmanka'), 'patient', LAST_INSERT_ID(), now());
+INSERT INTO pantax.patient (name, birthday, marital_status, occupation, address) VALUES('Petka chapaev', '1975-08-14', 'genat', 'raboch', 'Smupkin street Tarakan');
+INSERT INTO pantax.user (name, password, entity_type, entity_id, date_created) VALUES('petka', password('chapay'), 'patient', LAST_INSERT_ID(), now());
 COMMIT;

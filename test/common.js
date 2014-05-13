@@ -30,5 +30,15 @@ function userbytokenTest() {
 }
 
 
+function getUserStatusTest() {
+    dbmanager.getuserstatus(1, function(err, results) {
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    });
+}
+
 //test_login();
-userbytokenTest();
+//userbytokenTest();
+getUserStatusTest();

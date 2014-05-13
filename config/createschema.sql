@@ -21,6 +21,6 @@ BEGIN
 		set retToken = uuid();
 		INSERT INTO pantax.user_login (user_id, token, date_created) VALUES(user_id, retToken, now());
 	end if;
-	INSERT INTO pantax.user_status (user_id, status, status_date) VALUES(1, 'live', now()) ON DUPLICATE KEY UPDATE status_date = now();
+	INSERT INTO pantax.user_status (user_id, status, status_date) VALUES(user_id, 'live', now()) ON DUPLICATE KEY UPDATE status_date = now();
 	select retToken;
 end//

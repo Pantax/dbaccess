@@ -17,6 +17,7 @@
         }
     },
     "user" : {
-        "tokenExpiredIn" : 10
+        "tokenExpiredIn" : 10,
+        "statusExpiredIn" : 10
     }
 }
