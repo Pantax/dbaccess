@@ -11,6 +11,7 @@ CREATE TABLE pantax.appointment_option (id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 CREATE TABLE pantax.appointment_appointment_option (appointment_id INT UNSIGNED NOT NULL, appointment_option_id INT UNSIGNED NOT NULL,  PRIMARY KEY (appointment_id, appointment_option_id)) ENGINE=InnoDB;
 CREATE TABLE pantax.document (id INT UNSIGNED NOT NULL AUTO_INCREMENT, name varchar(256) NOT NULL, subject VARCHAR(4096) NOT NULL, created_date DATETIME NOT NULL, file_url VARCHAR(4096) NOT NULL,  PRIMARY KEY (id)) ENGINE=InnoDB;
 CREATE TABLE pantax.document_relation (id INT UNSIGNED NOT NULL AUTO_INCREMENT, document_id INT UNSIGNED NOT NULL, entity_type VARCHAR(20) NOT NULL, entity_id INT UNSIGNED NOT NULL, PRIMARY KEY (id)) ENGINE=InnoDB;
+CREATE TABLE pantax.user_status (user_id INT UNSIGNED NOT NULL, status VARCHAR(50) NOT NULL, PRIMARY KEY (user_id)) ENGINE=InnoDB;
 delimiter //
 create PROCEDURE pantax.getToken (in user_id int unsigned, in expiration int unsigned)
 BEGIN
