@@ -1,3 +1,7 @@
 {
-
+    "loginGetUser" : "select id from user where name = ? and password = password(?)",
+    "getUserToken" : "select token from user_login where user_id = ? and date_add(date_created, INTERVAL ? DAY) >= now()",
+    "getUserByToken" : "select user_id from user_login where token = ? and date_add(date_created, INTERVAL ? DAY) >= now()",
+    "createToken" : "INSERT INTO pantax.user_login (user_id, token, date_created) VALUES(?, uuid(), now())",
+    "getTokenById" : "select token from pantax.user_login where id = ?"
 }

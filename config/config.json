@@ -15,5 +15,8 @@
         "console" : {
             "level" : "debug"
         }
+    },
+    "user" : {
+        "tokenExpiredIn" : 10
     }
 }
