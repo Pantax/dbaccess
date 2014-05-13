@@ -11,3 +11,14 @@ CREATE TABLE pantax.appointment_option (id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 CREATE TABLE pantax.appointment_appointment_option (appointment_id INT UNSIGNED NOT NULL, appointment_option_id INT UNSIGNED NOT NULL,  PRIMARY KEY (appointment_id, appointment_option_id)) ENGINE=InnoDB;
 CREATE TABLE pantax.document (id INT UNSIGNED NOT NULL AUTO_INCREMENT, name varchar(256) NOT NULL, subject VARCHAR(4096) NOT NULL, created_date DATETIME NOT NULL, file_url VARCHAR(4096) NOT NULL,  PRIMARY KEY (id)) ENGINE=InnoDB;
 CREATE TABLE pantax.document_relation (id INT UNSIGNED NOT NULL AUTO_INCREMENT, document_id INT UNSIGNED NOT NULL, entity_type VARCHAR(20) NOT NULL, entity_id INT UNSIGNED NOT NULL, PRIMARY KEY (id)) ENGINE=InnoDB;
+delimiter //
+create PROCEDURE pantax.getToken (in user_id int unsigned, in expiration int unsigned)
+BEGIN
+	declare retToken varchar(100);
+	select ul.token into retToken from pantax.user_login ul where ul.user_id = user_id and date_add(ul.date_created, interval expiration day) >= now();
+	if retToken is null then
+		set retToken = uuid();
+		INSERT INTO pantax.user_login (user_id, token, date_created) VALUES(user_id, retToken, now());
+	end if;
+	select retToken;
+end//
