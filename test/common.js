@@ -20,4 +20,15 @@ function test_login() {
 }
 
 
-test_login();
+function userbytokenTest() {
+    dbmanager.userbytoken('blaaslslslsl', function(err, result) {
+        if(err) console.error(err);
+        else console.log(result);
+
+        dbmanager.releasePool();
+    })
+}
+
+
+//test_login();
+userbytokenTest();
