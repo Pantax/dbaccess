@@ -4,5 +4,5 @@
     "getToken" : "call getToken(?,?)",
     "getTokenById" : "select token from pantax.user_login where id = ?",
     "getUserStatus" : "select status from user_status where user_id = ? and date_add(status_date, interval ? MINUTE) >= now()",
-    "updateUserStatus" : ""
+    "updateUserStatus" : "INSERT INTO pantax.user_status (user_id, status, status_date) VALUES( ?, 'live', now()) ON DUPLICATE KEY UPDATE status_date = now();"
 }

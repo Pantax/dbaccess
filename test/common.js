@@ -39,6 +39,16 @@ function getUserStatusTest() {
     });
 }
 
+function updateUserStatusTest() {
+    dbmanager.updateuserstatus(4, function(err, results) {
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    });
+}
+
 //test_login();
 //userbytokenTest();
-getUserStatusTest();
+//getUserStatusTest();
+updateUserStatusTest();
