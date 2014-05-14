@@ -1,8 +1,9 @@
 {
     "loginGetUser" : "select id from user where name = ? and password = password(?)",
-    "getUserByToken" : "select user_id from user_login where token = ? and date_add(date_created, INTERVAL ? DAY) >= now()",
+    "getUserByToken" : "select user_id, u.entity_type, u.entity_id from user_login ul inner join user u on ul.user_id = u.id where token = ? and date_add(ul.date_created, INTERVAL ? DAY) >= now()",
     "getToken" : "call getToken(?,?)",
     "getTokenById" : "select token from pantax.user_login where id = ?",
     "getUserStatus" : "select status from user_status where user_id = ? and date_add(status_date, interval ? MINUTE) >= now()",
-    "updateUserStatus" : "INSERT INTO pantax.user_status (user_id, status, status_date) VALUES( ?, 'live', now()) ON DUPLICATE KEY UPDATE status_date = now();"
+    "updateUserStatus" : "INSERT INTO pantax.user_status (user_id, status, status_date) VALUES( ?, 'live', now()) ON DUPLICATE KEY UPDATE status_date = now()",
+    "getDoctorAppOptions" : "select ao.id, from_date, to_date from doctor d inner join appointment_option ao on d.id = ao.doctor_id where d.id = :doctorId and ao.from_date > now() and ao.id not in (select aao.appointment_option_id from appointment_appointment_option aao inner join appointment_option ao on ao.id = aao.appointment_option_id where ao.doctor_id = :doctorId )"
 }

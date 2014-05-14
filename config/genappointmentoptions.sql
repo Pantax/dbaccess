@@ -5,7 +5,7 @@ drop procedure if exists generate#
 
 create procedure generate()
 begin
-    declare v_start datetime default '2014-5-13 08:00';
+    declare v_start datetime default '2014-5-14 16:00';
     declare v_duration int default 20;
     declare v_interval int default 10;
     declare v_count int default 0;

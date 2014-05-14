@@ -21,7 +21,7 @@ function test_login() {
 
 
 function userbytokenTest() {
-    dbmanager.userbytoken('blaaslslslsl', function(err, result) {
+    dbmanager.userbytoken('b0dbdc67-db77-11e3-8a5f-0800278eff10', function(err, result) {
         if(err) console.error(err);
         else console.log(result);
 
@@ -48,7 +48,17 @@ function updateUserStatusTest() {
     });
 }
 
+function doctorAppOptionsTest () {
+    dbmanager.doctorappoptions(1, function(err, results) {
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    });
+}
+
 //test_login();
-//userbytokenTest();
+userbytokenTest();
 //getUserStatusTest();
-updateUserStatusTest();
+//updateUserStatusTest();
+//doctorAppOptionsTest();
