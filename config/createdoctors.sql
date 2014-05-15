@@ -7,4 +7,8 @@ INSERT INTO pantax.patient (name, birthday, marital_status, occupation, address)
 INSERT INTO pantax.user (name, password, entity_type, entity_id, date_created) VALUES('vanka', password('shmanka'), 'patient', LAST_INSERT_ID(), now());
 INSERT INTO pantax.patient (name, birthday, marital_status, occupation, address) VALUES('Petka chapaev', '1975-08-14', 'genat', 'raboch', 'Smupkin street Tarakan');
 INSERT INTO pantax.user (name, password, entity_type, entity_id, date_created) VALUES('petka', password('chapay'), 'patient', LAST_INSERT_ID(), now());
+INSERT INTO pantax.category (name, explanation) VALUES ('PEDIATRIC', 'Doctor who give antibiotic to children');
+INSERT INTO pantax.doctor_category (doctor_id, category_id) VALUES(1, LAST_INSERT_ID());
+INSERT INTO pantax.category (name, explanation) VALUES ('FAMILY', 'Doctor who give antibiotic to you');
+INSERT INTO pantax.doctor_category (doctor_id, category_id) VALUES(2, LAST_INSERT_ID());
 COMMIT;

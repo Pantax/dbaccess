@@ -57,8 +57,19 @@ function doctorAppOptionsTest () {
     });
 }
 
+
+function doctorSearchTest() {
+    dbmanager.doctorsearch(['hello'],function(err, results) {
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    });
+}
+
 //test_login();
-userbytokenTest();
+//userbytokenTest();
 //getUserStatusTest();
 //updateUserStatusTest();
 //doctorAppOptionsTest();
+doctorSearchTest();
