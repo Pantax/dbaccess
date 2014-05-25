@@ -67,9 +67,31 @@ function doctorSearchTest() {
     });
 }
 
+
+function getDoctorTest() {
+    dbmanager.getdoctor(1,function(err, results) {
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    });
+}
+
+function getPatientTest() {
+    dbmanager.getpatient(1,function(err, results) {
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    });
+}
+
 //test_login();
 //userbytokenTest();
 //getUserStatusTest();
 //updateUserStatusTest();
 //doctorAppOptionsTest();
-doctorSearchTest();
+//doctorSearchTest();
+//getDoctorTest();
+//getPatientTest();
+
