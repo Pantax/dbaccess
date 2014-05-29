@@ -1,6 +1,6 @@
 {
     "name": "pantax-dbaccess",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "dependencies" : {
         "mysql" : "2.1.*",
         "async" : "*",
