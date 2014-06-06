@@ -77,15 +77,6 @@ function getDoctorTest() {
     });
 }
 
-function getPatientTest() {
-    dbmanager.getpatient(1,function(err, results) {
-        if(err) console.error(err);
-        else console.log(results);
-
-        dbmanager.releasePool();
-    });
-}
-
 function getPatientAppointmentsTest() {
     dbmanager.getpatientappointments(1, function(err, results) {
         if(err) console.error(err);
@@ -95,7 +86,19 @@ function getPatientAppointmentsTest() {
     });
 }
 
-getPatientAppointmentsTest();
+
+function getPatientTest() {
+    dbmanager.getpatient(1,function(err, results) {
+        if(err) console.error(err);
+        else console.log(results);
+
+        getPatientAppointmentsTest()
+    });
+}
+
+
+
+getPatientTest();
 //test_login();
 //userbytokenTest();
 //getUserStatusTest();
@@ -103,5 +106,5 @@ getPatientAppointmentsTest();
 //doctorAppOptionsTest();
 //doctorSearchTest();
 //getDoctorTest();
-//getPatientTest();
+
 
