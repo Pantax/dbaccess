@@ -3,12 +3,12 @@
         "host" : "127.0.0.1",
         "port" : 3306,
         "database" : "pantax",
-        "user" : "pantax",
-        "password" : "123456"
+        "user" : "root",
+        "password" : "lev4969"
     },
     "logger" : {
         "file" : {
-            "filename" : "/home/ec2-user/logs/pantax.log",
+            "filename" : "/home/ozlevka/projects/fok/dbaccess/logs/pantax.log",
             "maxsize" : 20480,
             "level" : "debug"
         },

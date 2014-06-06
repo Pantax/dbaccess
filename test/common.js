@@ -86,6 +86,16 @@ function getPatientTest() {
     });
 }
 
+function getPatientAppointmentsTest() {
+    dbmanager.getpatientappointments(1, function(err, results) {
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    });
+}
+
+getPatientAppointmentsTest();
 //test_login();
 //userbytokenTest();
 //getUserStatusTest();
