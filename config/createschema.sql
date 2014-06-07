@@ -3,7 +3,6 @@ CREATE TABLE pantax.user (id INT UNSIGNED NOT NULL AUTO_INCREMENT, name VARCHAR(
 CREATE TABLE pantax.doctor (id INT UNSIGNED NOT NULL AUTO_INCREMENT, name VARCHAR(512) NOT NULL, degree VARCHAR(20) NOT NULL, primary_care TEXT NULL,  rank INT UNSIGNED NULL, picture_url VARCHAR(1000) NULL, PRIMARY KEY (id)) ENGINE=InnoDB;
 CREATE TABLE pantax.user_login (id INT UNSIGNED NOT NULL AUTO_INCREMENT, user_id INT UNSIGNED NOT NULL, token VARCHAR(100) NOT NULL, date_created DATETIME NOT NULL, PRIMARY KEY (id)) ENGINE=InnoDB;
 CREATE TABLE pantax.patient (id INT UNSIGNED NOT NULL AUTO_INCREMENT, name VARCHAR(512) NOT NULL, birthday DATE NULL, marital_status VARCHAR(512) NULL, occupation VARCHAR(512) NULL, address VARCHAR(2048) NULL, picture_url VARCHAR(1000) NULL, balance FLOAT(7,2), PRIMARY KEY (id)) ENGINE=InnoDB;
-CREATE TABLE pantax.review (id INT UNSIGNED NOT NULL AUTO_INCREMENT, doctor_id INT UNSIGNED NOT NULL, patient_id INT UNSIGNED NOT NULL, rank INT UNSIGNED NOT NULL, PRIMARY KEY (id)) ENGINE=InnoDB;
 CREATE TABLE pantax.category (id INT UNSIGNED NOT NULL AUTO_INCREMENT, name VARCHAR(100) NOT NULL, explanation TEXT  NULL, PRIMARY KEY (id)) ENGINE=InnoDB;
 CREATE TABLE pantax.doctor_category (doctor_id INT UNSIGNED NOT NULL, category_id INT UNSIGNED NOT NULL, PRIMARY KEY (doctor_id, category_id)) ENGINE=InnoDB;
 CREATE TABLE pantax.appointment (id INT UNSIGNED NOT NULL AUTO_INCREMENT, patient_id INT UNSIGNED NOT NULL, weight FLOAT(4,2) NULL, height int NULL, blood_pressure varchar(20) NULL, temperature FLOAT(3,1) NULL, appointment_reason VARCHAR(4096) NULL, additional_info TEXT NULL, PRIMARY KEY (id)) ENGINE=InnoDB;
@@ -12,6 +11,7 @@ CREATE TABLE pantax.appointment_appointment_option (appointment_id INT UNSIGNED 
 CREATE TABLE pantax.document (id INT UNSIGNED NOT NULL AUTO_INCREMENT, name varchar(256) NOT NULL, subject VARCHAR(4096) NOT NULL, created_date DATETIME NOT NULL, file_url VARCHAR(4096) NOT NULL,  PRIMARY KEY (id)) ENGINE=InnoDB;
 CREATE TABLE pantax.document_relation (id INT UNSIGNED NOT NULL AUTO_INCREMENT, document_id INT UNSIGNED NOT NULL, entity_type VARCHAR(20) NOT NULL, entity_id INT UNSIGNED NOT NULL, PRIMARY KEY (id)) ENGINE=InnoDB;
 CREATE TABLE pantax.user_status (user_id INT UNSIGNED NOT NULL, status VARCHAR(50) NOT NULL, status_date DATETIME, PRIMARY KEY (user_id)) ENGINE=InnoDB;
+CREATE TABLE pantax.reviews ( id INT UNSIGNED NOT NULL AUTO_INCREMENT, doctor_id INT UNSIGNED, patient_id INT UNSIGNED, rank INT, review_text TEXT, PRIMARY KEY (id) ) ENGINE=InnoDB;
 delimiter //
 create PROCEDURE pantax.getToken (in user_id int unsigned, in expiration int unsigned)
 BEGIN
@@ -24,3 +24,7 @@ BEGIN
 	INSERT INTO pantax.user_status (user_id, status, status_date) VALUES(user_id, 'live', now()) ON DUPLICATE KEY UPDATE status_date = now();
 	select retToken;
 end//
+delimiter ;
+
+
+

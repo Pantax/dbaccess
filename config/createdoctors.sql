@@ -11,4 +11,5 @@ INSERT INTO pantax.category (name, explanation) VALUES ('PEDIATRIC', 'Doctor who
 INSERT INTO pantax.doctor_category (doctor_id, category_id) VALUES(1, LAST_INSERT_ID());
 INSERT INTO pantax.category (name, explanation) VALUES ('FAMILY', 'Doctor who give antibiotic to you');
 INSERT INTO pantax.doctor_category (doctor_id, category_id) VALUES(2, LAST_INSERT_ID());
+INSERT INTO pantax.reviews (doctor_id, patient_id, rank, review_text) VALUES (1, 1, 20, 'Cool doctor');
 COMMIT;
