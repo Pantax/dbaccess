@@ -106,9 +106,29 @@ function getAppointmentInfoTest() {
     });
 }
 
+function getPatientAppointmentHistoryTest() {
+    dbmanager.getpatientapphistory(1,0,10,function(err, results) {
+        if(err) console.error(err);
+        else console.log(results);
 
+        dbmanager.releasePool();
+    });
 
-getAppointmentInfoTest();
+}
+
+function getPatientAppointmentHistoryTestNull() {
+    dbmanager.getpatientapphistory(1,null,null,function(err, results) {
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    });
+
+}
+
+//getPatientAppointmentHistoryTest();
+getPatientAppointmentHistoryTestNull();
+//getAppointmentInfoTest();
 /// /getPatientTest();
 //test_login();
 //userbytokenTest();
