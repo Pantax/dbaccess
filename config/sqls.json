@@ -10,5 +10,6 @@
     "searchDynamicPart" : "concat(d.name, '', d.primary_care) like '%:term%'",
     "getDoctor" : "select name, degree, primary_care, rank from doctor where id = ?",
     "getPatient" : "select * from patient where id = ?",
-    "getPatientAppointments" : "select ao.doctor_id, ao.from_date, ao.to_date, ap.id appointment_id, ao.id appointment_option_id from appointment ap inner join appointment_appointment_option aao on ap.id = aao.appointment_id inner join appointment_option ao on aao.appointment_option_id = ao.id  where ap.patient_id = ? and ao.from_date > now()"
+    "getPatientAppointments" : "select ao.doctor_id, ao.from_date, ao.to_date, ap.id appointment_id, ao.id appointment_option_id from appointment ap inner join appointment_appointment_option aao on ap.id = aao.appointment_id inner join appointment_option ao on aao.appointment_option_id = ao.id  where ap.patient_id = ? and ao.from_date > now()",
+    "appointmentInfo" : "select weight, height, blood_pressure, temperature, appointment_reason, additional_info from appointment where id = ?"
 }

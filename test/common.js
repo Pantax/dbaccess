@@ -97,8 +97,19 @@ function getPatientTest() {
 }
 
 
+function getAppointmentInfoTest() {
+    dbmanager.getappointmentinfo(1,function(err, results) {
+        if(err) console.error(err);
+        else console.log(results);
 
-getPatientTest();
+        dbmanager.releasePool();
+    });
+}
+
+
+
+getAppointmentInfoTest();
+/// /getPatientTest();
 //test_login();
 //userbytokenTest();
 //getUserStatusTest();

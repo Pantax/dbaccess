@@ -5,7 +5,7 @@ drop procedure if exists generate#
 
 create procedure generate()
 begin
-    declare v_start datetime default '2014-5-16 8:00';
+    declare v_start datetime default date_add(now(), interval 1 day);
     declare v_duration int default 20;
     declare v_interval int default 10;
     declare v_count int default 0;
@@ -21,4 +21,8 @@ end#
 delimiter ;
 call generate();
 drop procedure if exists generate;
+INSERT INTO pantax.appointment (patient_id, weight, height, blood_pressure, temperature, appointment_reason, additional_info)
+                        VALUES (1,          73.5,   175,    '120x80',       36.6,        'Glisti',           'sjhshshshshsha');
+INSERT INTO pantax.appointment_appointment_option (appointment_id, appointment_option_id) VALUES(1, 8);
+
 
