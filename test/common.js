@@ -126,8 +126,20 @@ function getPatientAppointmentHistoryTestNull() {
 
 }
 
+function getPatientPersonalInfoTest() {
+    dbmanager.getpatientpersonalinfo(1,function(err, results) {
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    });
+
+}
+
+
+getPatientPersonalInfoTest();
 //getPatientAppointmentHistoryTest();
-getPatientAppointmentHistoryTestNull();
+//getPatientAppointmentHistoryTestNull();
 //getAppointmentInfoTest();
 /// /getPatientTest();
 //test_login();
