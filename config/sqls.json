@@ -13,5 +13,6 @@
     "getPatientAppointments" : "select ao.doctor_id, ao.from_date, ao.to_date, ap.id appointment_id, ao.id appointment_option_id from appointment ap inner join appointment_appointment_option aao on ap.id = aao.appointment_id inner join appointment_option ao on aao.appointment_option_id = ao.id  where ap.patient_id = ? and ao.from_date > now()",
     "appointmentInfo" : "select weight, height, blood_pressure, temperature, appointment_reason, additional_info from appointment where id = ?",
     "patientAppointmentHistory" : "select a.id appointment_id, ao.id appointment_option_id, ao.from_date date, d.name doctor_name, a.additional_info appointment_additional_info from appointment a inner join appointment_appointment_option aao on a.id = aao.appointment_id inner join appointment_option ao on aao.appointment_option_id = ao.id inner join doctor d on ao.doctor_id = d.id where a.patient_id = ? order by a.id limit ?,?",
-    "patientPersonalInfo" : "select name, birthday, marital_status, occupation, address, picture_url  from patient where id = ?"
+    "patientPersonalInfo" : "select name, birthday, marital_status, occupation, address, picture_url  from patient where id = ?",
+    "updatePatientInfo" : "update patient set :updateStatement where id = :id"
 }
