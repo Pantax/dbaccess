@@ -136,8 +136,23 @@ function getPatientPersonalInfoTest() {
 
 }
 
+function updatePatientInfoExecutionTest() {
+    var test_object = {
+        "marital_status" : "marry",
+        balance : 220.3,
+        patient_id : 1
+    }
 
-getPatientPersonalInfoTest();
+    dbmanager.updatepatientinfo(test_object, function(err, results) {
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    })
+}
+
+updatePatientInfoExecutionTest();
+//getPatientPersonalInfoTest();
 //getPatientAppointmentHistoryTest();
 //getPatientAppointmentHistoryTestNull();
 //getAppointmentInfoTest();
