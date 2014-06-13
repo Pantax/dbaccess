@@ -138,9 +138,13 @@ function getPatientPersonalInfoTest() {
 
 function updatePatientInfoExecutionTest() {
     var test_object = {
-        "marital_status" : "marry",
-        balance : 220.3,
-        patient_id : 1
+        "patient_id":"1",
+        "name": "John Smith",
+        "birthday": "20/05/1977",
+        "marital_status": "Married",
+        "occupation": "Engineer",
+        "address": "DDD St., Moscow",
+        "picture_url": "example.com/pictures/pict1.jpg"
     }
 
     dbmanager.updatepatientinfo(test_object, function(err, results) {
