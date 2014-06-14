@@ -15,8 +15,8 @@
     "patientAppointmentHistory" : "select a.id appointment_id, ao.id appointment_option_id, ao.from_date date, d.name doctor_name, a.additional_info appointment_additional_info from appointment a inner join appointment_appointment_option aao on a.id = aao.appointment_id inner join appointment_option ao on aao.appointment_option_id = ao.id inner join doctor d on ao.doctor_id = d.id where a.patient_id = ? order by a.id limit ?,?",
     "patientPersonalInfo" : "select name, birthday, marital_status, occupation, address, picture_url  from patient where id = ?",
     "updatePatientInfo" : "update patient set :updateStatement where id = :id",
-    "insertAppointment" : "INSERT INTO pantax.appointment (??) VALUES( :values )",
+    "insertAppointment" : "INSERT INTO pantax.appointment :columns VALUES :values",
     "updateAppointment" : "UPDATE pantax.appointment set :updateStatement where id = :id",
-    "deleteAppointmentAppointmentOptions" : "DELETE FROM  pantax.appointment_appointment_option WHERE appointment_id= ?",
+    "deleteAppointmentAppointmentOptions" : "DELETE FROM  pantax.appointment_appointment_option WHERE appointment_id= :id",
     "insertAppointmentAppointmentOption" : "INSERT INTO pantax.appointment_appointment_option (appointment_id, appointment_option_id) VALUES(?, ?)"
 }

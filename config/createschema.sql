@@ -24,7 +24,7 @@ BEGIN
 	INSERT INTO pantax.user_status (user_id, status, status_date) VALUES(user_id, 'live', now()) ON DUPLICATE KEY UPDATE status_date = now();
 	select retToken;
 end//
-delimiter ;
+
 
 
 

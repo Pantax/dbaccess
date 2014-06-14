@@ -155,7 +155,39 @@ function updatePatientInfoExecutionTest() {
     })
 }
 
-updatePatientInfoExecutionTest();
+
+function testArrayToSqlStatement() {
+    var arr = ['patient_id', 'weight', 'height', 'blood_pressure', 'temperature', 'appointment_reason', 'additional_info', 'appointment_option_ids', 'id'];
+
+    console.log(dbmanager.forTest([arr,"'"]));
+}
+
+
+function saveAppointmentTest() {
+    var app_info = {
+        "id" : 6,
+        "patient_id": "1",
+        "weight": "77.5",
+        "height": "177",
+        "blood_pressure": "90x120",
+        "temperature": "36.8",
+        "appointment_reason": "SsSs",
+        "additional_info": "sSS",
+        "appointment_option_ids" : [1, 15]
+
+    };
+
+    dbmanager.saveappointment(app_info, function(err, results){
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    })
+}
+
+saveAppointmentTest();
+//testArrayToSqlStatement();
+//updatePatientInfoExecutionTest();
 //getPatientPersonalInfoTest();
 //getPatientAppointmentHistoryTest();
 //getPatientAppointmentHistoryTestNull();
