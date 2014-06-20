@@ -18,5 +18,6 @@
     "insertAppointment" : "INSERT INTO pantax.appointment :columns VALUES :values",
     "updateAppointment" : "UPDATE pantax.appointment set :updateStatement where id = :id",
     "deleteAppointmentAppointmentOptions" : "DELETE FROM  pantax.appointment_appointment_option WHERE appointment_id= :id",
-    "insertAppointmentAppointmentOption" : "INSERT INTO pantax.appointment_appointment_option (appointment_id, appointment_option_id) VALUES(?, ?)"
+    "insertAppointmentAppointmentOption" : "INSERT INTO pantax.appointment_appointment_option (appointment_id, appointment_option_id) VALUES(?, ?)",
+    "getAppOptionsByApp" : "select * from appointment_option where id in (select appointment_option_id from appointment_appointment_option where appointment_id = ?)"
 }

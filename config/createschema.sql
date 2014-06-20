@@ -9,6 +9,7 @@ CREATE TABLE pantax.appointment (id INT UNSIGNED NOT NULL AUTO_INCREMENT, patien
 CREATE TABLE pantax.appointment_option (id INT UNSIGNED NOT NULL AUTO_INCREMENT, doctor_id INT UNSIGNED NOT NULL, from_date DATETIME NOT NULL, to_date DATETIME NOT NULL,  PRIMARY KEY (id)) ENGINE=InnoDB;
 CREATE TABLE pantax.appointment_appointment_option (appointment_id INT UNSIGNED NOT NULL, appointment_option_id INT UNSIGNED NOT NULL,  PRIMARY KEY (appointment_id, appointment_option_id)) ENGINE=InnoDB;
 CREATE TABLE pantax.document (id INT UNSIGNED NOT NULL AUTO_INCREMENT, name varchar(256) NOT NULL, subject VARCHAR(4096) NOT NULL, created_date DATETIME NOT NULL, file_url VARCHAR(4096) NOT NULL,  PRIMARY KEY (id)) ENGINE=InnoDB;
+CREATE TABLE pantax.message (id INT UNSIGNED NOT NULL AUTO_INCREMENT, subject varchar(1024) NOT NULL, created_date DATETIME NOT NULL, body TEXT NULL,  PRIMARY KEY (id)) ENGINE=InnoDB;
 CREATE TABLE pantax.document_relation (id INT UNSIGNED NOT NULL AUTO_INCREMENT, document_id INT UNSIGNED NOT NULL, entity_type VARCHAR(20) NOT NULL, entity_id INT UNSIGNED NOT NULL, PRIMARY KEY (id)) ENGINE=InnoDB;
 CREATE TABLE pantax.user_status (user_id INT UNSIGNED NOT NULL, status VARCHAR(50) NOT NULL, status_date DATETIME, PRIMARY KEY (user_id)) ENGINE=InnoDB;
 CREATE TABLE pantax.reviews ( id INT UNSIGNED NOT NULL AUTO_INCREMENT, doctor_id INT UNSIGNED, patient_id INT UNSIGNED, rank INT, review_text TEXT, PRIMARY KEY (id) ) ENGINE=InnoDB;

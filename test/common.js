@@ -185,7 +185,17 @@ function saveAppointmentTest() {
     })
 }
 
-saveAppointmentTest();
+function getappointmentTest() {
+    dbmanager.getappointment(1, function(err, res) {
+        if(err) console.error(err);
+        else console.log(res);
+
+        dbmanager.releasePool();
+    })
+}
+
+getappointmentTest();
+//saveAppointmentTest();
 //testArrayToSqlStatement();
 //updatePatientInfoExecutionTest();
 //getPatientPersonalInfoTest();
