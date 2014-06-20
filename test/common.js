@@ -191,10 +191,20 @@ function getappointmentTest() {
         else console.log(res);
 
         dbmanager.releasePool();
-    })
+    });
 }
 
-getappointmentTest();
+function getpatientdetailsTest() {
+    dbmanager.getpatientdetails(1, function(err, res) {
+        if(err) console.error(err);
+        else console.log(res);
+
+        dbmanager.releasePool();
+    });
+}
+
+getpatientdetailsTest();
+//getappointmentTest();
 //saveAppointmentTest();
 //testArrayToSqlStatement();
 //updatePatientInfoExecutionTest();
