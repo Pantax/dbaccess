@@ -203,7 +203,18 @@ function getpatientdetailsTest() {
     });
 }
 
-getpatientdetailsTest();
+function getcategoriesTest() {
+    dbmanager.getcategories(2,10,function(err, results){
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    })
+}
+
+
+getcategoriesTest();
+//getpatientdetailsTest();
 //getappointmentTest();
 //saveAppointmentTest();
 //testArrayToSqlStatement();

@@ -21,5 +21,6 @@
     "insertAppointmentAppointmentOption" : "INSERT INTO pantax.appointment_appointment_option (appointment_id, appointment_option_id) VALUES(?, ?)",
     "getAppOptionsByApp" : "select * from appointment_option where id in (select appointment_option_id from appointment_appointment_option where appointment_id = ?)",
     "getPatientReviews" : "select * from reviews where patient_id = ?",
-    "getPatientAppointments":"select app.id appointment_id, apo.doctor_id, apo.from_date, apo.to_date from appointment app inner join appointment_appointment_option apapo on app.id = apapo.appointment_id inner join appointment_option apo on apapo.appointment_option_id = apo.id where app.patient_id = ? and apo.from_date > now()"
+    "getPatientAppointments":"select app.id appointment_id, apo.doctor_id, apo.from_date, apo.to_date from appointment app inner join appointment_appointment_option apapo on app.id = apapo.appointment_id inner join appointment_option apo on apapo.appointment_option_id = apo.id where app.patient_id = ? and apo.from_date > now()",
+    "getCategories" : "select * from category limit ?,?"
 }
