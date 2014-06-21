@@ -59,7 +59,7 @@ function doctorAppOptionsTest () {
 
 
 function doctorSearchTest() {
-    dbmanager.doctorsearch(['hello'],function(err, results) {
+    dbmanager.doctorsearch(['hello'], 0, 10,function(err, results) {
         if(err) console.error(err);
         else console.log(results);
 
@@ -213,7 +213,7 @@ function getcategoriesTest() {
 }
 
 
-getcategoriesTest();
+//getcategoriesTest();
 //getpatientdetailsTest();
 //getappointmentTest();
 //saveAppointmentTest();
@@ -229,7 +229,7 @@ getcategoriesTest();
 //getUserStatusTest();
 //updateUserStatusTest();
 //doctorAppOptionsTest();
-//doctorSearchTest();
+doctorSearchTest();
 //getDoctorTest();
 
 

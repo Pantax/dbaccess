@@ -6,7 +6,7 @@
     "getUserStatus" : "select status from user_status where user_id = ? and date_add(status_date, interval ? MINUTE) >= now()",
     "updateUserStatus" : "INSERT INTO pantax.user_status (user_id, status, status_date) VALUES( ?, 'live', now()) ON DUPLICATE KEY UPDATE status_date = now()",
     "getDoctorAppOptions" : "select ao.id, from_date, to_date from doctor d inner join appointment_option ao on d.id = ao.doctor_id where d.id = :doctorId and ao.from_date > now() and ao.id not in (select aao.appointment_option_id from appointment_appointment_option aao inner join appointment_option ao on ao.id = aao.appointment_option_id where ao.doctor_id = :doctorId )",
-    "searchMainPart" : "select ao.id as app_id, d.id as doctor_id, ao.from_date, ao.to_date, d.name, d.degree from doctor d inner join appointment_option ao on ao.doctor_id = d.id where ao.from_date > now() and ao.to_date < date_add(now(), interval 1 day) and ao.id not in (select appointment_option_id from appointment_appointment_option aao inner join appointment_option ao1 on aao.appointment_option_id = ao1.id and ao1.from_date > now()) and (:dynamic)",
+    "searchMainPart" : "select * from doctor d inner join doctor_category dc on d.id = dc.doctor_id where (:dynamic) limit ?, ?",
     "searchDynamicPart" : "concat(d.name, '', d.primary_care) like '%:term%'",
     "getDoctor" : "select name, degree, primary_care, rank from doctor where id = ?",
     "getPatient" : "select * from patient where id = ?",
