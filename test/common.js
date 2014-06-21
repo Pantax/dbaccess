@@ -213,6 +213,22 @@ function getcategoriesTest() {
 }
 
 
+function insertdocumentTest() {
+    var document = {
+        "name" : "Spravka",
+        "subject" : "Blood glucose test",
+        "file_url" : "http://aaa.com/asassa/ssss/qwqq.cf"
+    };
+
+    dbmanager.insertdocument(document, function(err, results) {
+        if(err) console.error(err);
+        else console.log(results);
+
+        dbmanager.releasePool();
+    });
+}
+
+insertdocumentTest();
 //getcategoriesTest();
 //getpatientdetailsTest();
 //getappointmentTest();
@@ -229,7 +245,7 @@ function getcategoriesTest() {
 //getUserStatusTest();
 //updateUserStatusTest();
 //doctorAppOptionsTest();
-doctorSearchTest();
+//doctorSearchTest();
 //getDoctorTest();
 
 
