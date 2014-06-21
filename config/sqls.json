@@ -23,5 +23,6 @@
     "getPatientReviews" : "select * from reviews where patient_id = ?",
     "getPatientAppointments":"select app.id appointment_id, apo.doctor_id, apo.from_date, apo.to_date from appointment app inner join appointment_appointment_option apapo on app.id = apapo.appointment_id inner join appointment_option apo on apapo.appointment_option_id = apo.id where app.patient_id = ? and apo.from_date > now()",
     "getCategories" : "select * from category limit ?,?",
-    "insertDocument" : "INSERT INTO pantax.document (name, subject, created_date, last_access_date, file_url) VALUES(?, ?, now(), now(), ?)"
+    "insertDocument" : "INSERT INTO pantax.document (name, subject, created_date, last_access_date, file_url) VALUES(?, ?, now(), now(), ?)",
+    "apllyDocumentRelation" : "INSERT INTO pantax.document_relation (document_id, entity_type, entity_id) VALUES (?, ?, ?)"
 }

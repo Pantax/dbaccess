@@ -220,7 +220,7 @@ function insertdocumentTest() {
         "file_url" : "http://aaa.com/asassa/ssss/qwqq.cf"
     };
 
-    dbmanager.insertdocument(document, function(err, results) {
+    dbmanager.insertdocument(document, 'patient', 1, function(err, results) {
         if(err) console.error(err);
         else console.log(results);
 
